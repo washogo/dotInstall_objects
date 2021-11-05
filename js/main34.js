@@ -1,7 +1,7 @@
 'use strict';
 
 {
-  class Post{ // 親クラス
+  class Post{
     constructor(text){
     this.text = text;
     this.likeCount = 0;
@@ -16,15 +16,21 @@
       this.show();
     }
   }
-  class SponsoredPost extends Post{ // 子クラス
+  class SponsoredPost{
     constructor(text, sponsor){
-      super(text);
-      this.sponsor = sponsor;
+    this.text = text;
+    this.likeCount = 0;
+    this.sponsor = sponsor;
     }
   
     show() {
-      super.show();
+      console.log(`${this.text} - ${this.likeCount} likes`);
       console.log(`... sponsored by ${this.sponsor}`);
+    }
+    
+    like() {
+      this.likeCount++;
+      this.show();
     }
   }
   
@@ -38,6 +44,5 @@
   posts[2].show();
   posts[2].like();
 }
-/*クラスの継承*/
-/*コードを追加したり変更するときはsuperを用いて親クラスを参照する*/
-/*そうでないなら、クラスを継承したことによって、型を持っているから、記述がなくても、メソッドを保持している*/
+/*クラスの拡張*/
+//クラスを増やすということ
